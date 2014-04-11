@@ -1,0 +1,106 @@
+@CHARSET "ISO-8859-1";
+
+body {
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+.mainpopup {
+	cursor: pointer;
+	height: 700px;
+	width: 100%;
+	background: none repeat scroll 0 0 #000;
+	display: none;
+	position: absolute;
+	opacity: 0.6;
+	top: 0;
+	left: 0;
+	overflow: hidden;
+}
+
+.popup {
+	width: 350px;
+	height: 230px;
+	background: white;
+	box-shadow: none;
+	border: none;
+	display: none;
+	z-index: 1;
+	position: fixed;
+	top: 200px;
+	left: 470px;
+	opacity: 1;
+	filter: alpha(opacity = 100);
+	border-radius:6px; 
+}
+.popup h4{
+	font-weight: normal;
+	font-size: 15px;
+	background-color: #569e3d;
+	width: 100%;
+	height:40px;
+	margin-top: -12px;
+	padding-top: 10px;
+	border-radius:6px; 
+	color: white;
+}
+.popup p{
+	margin-top:-15px;
+	font-size: 13px;
+	margin-bottom: 30px;
+}
+.middlepopup {
+	width: 500px;
+	height: 130px;
+}
+.middlepopup label{
+	font-size: 13px;
+	margin-bottom: 4px;
+	padding-left: 20px;
+	
+}
+.textpopup {
+	width:200px;
+	height: 25px;
+	border: solid 1px #cdcdcd;
+	box-shadow: inset 0 0 5px #cdcdcd;
+	-moz-box-shadow: inset 0 0 5px #cdcdcd;
+	border-radius: 6px;
+	outline: none;
+	padding-left: 10px;
+	
+}
+.textpopup:FOCUS
+{
+	background-color: #fff;
+	border: 1px solid #333;
+	outline: none;
+}
+.middlepopup .btn {
+	width: 130px;
+	height: 35px;
+	background: gray;
+	font-size:15px;
+	box-shadow: 0 0 4px 2px #CCCCCC;
+	color: white;
+	cursor: pointer;
+	vertical-align: middle;
+	margin-top: 20px;
+	margin-left: 60px;
+		color: #fff;
+	background-color: #569e3d;
+	background-image: -moz-linear-gradient(#79d858, #569e3d);
+	background-image: -webkit-linear-gradient(#79d858, #569e3d);
+	background-image: linear-gradient(#79d858, #569e3d);
+	background-repeat: repeat-x;
+	border-color: #4a993e;
+	
+}
+#close
+{
+margin-top:-70px;	
+height:50px;
+width: 50px;
+background: green;
+margin-left: 230px;
+	
+}

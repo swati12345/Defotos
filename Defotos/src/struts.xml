@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+
+	<constant name="struts.devMode" value="true"></constant>
+    <constant name="struts.custom.i18n.resources" value="global"></constant>
+   <constant name="struts.multipart.MaxSize" value="10485760"></constant>
+	<package name="login" extends="struts-default">
+		<global-exception-mappings>
+			<exception-mapping result="error"
+				exception="java.lang.NullPointerException"></exception-mapping>
+		</global-exception-mappings>
+	    
+			<action name="login" class="com.LoginBean">
+			<result name="success">/home.jsp</result>
+			<result name="input">/index.jsp</result>
+			<result name="error">/error.jsp</result>
+		</action>
+		<action name="register">
+			<result>/regisrtration.jsp</result>
+		</action>
+		<action name="index">
+			<result>/index.jsp</result>
+		</action>
+
+		<action name="signup" class="com.Signup">
+			<result name="success">/success.jsp</result>
+			<result name="input">/regisrtration.jsp</result>
+			<result name="error">/regisrtration.jsp</result>
+		</action>
+		<action name="email" class="com.EmailCheck" method="execute">
+			<result name="error">/validationerror.jsp</result>
+			<result name="success">/validationpass.jsp</result>
+		</action>
+		<action name="fboauthcallback" class="com.FBOAuthCallback">
+			<result name="success">/home.jsp</result>
+		</action>
+
+		<action name="fbsetup" class="com.FBOAuthCallback" method="setup">
+			<result name="success">/success.jsp</result>
+		</action>
+
+		<action name="confirmRegister" class="com.ConfirmRegisterAction">
+			<result name="success">/index.jsp</result>
+			<result name="error">/error.jsp</result>
+
+		</action>
+		
+		<action name="signout" class="com.Signout">
+			<result name="success">/index.jsp</result>
+			<result name="error">/error.jsp</result>
+
+		</action>
+		
+		<action name="forget" class="com.ForgetPasswordAction">
+			<result name="success">/index.jsp</result>
+			<result name="error">/error.jsp</result>
+
+		</action>
+		<action name="changePass" class="com.ChangePasswordAction">
+			<result name="success">/index.jsp</result>
+			<result name="error">/errorpage.jsp</result>
+		</action>
+		<action name="ch">
+			<result name="success">/ChangePassword.jsp</result>
+		</action>
+		<action name="imageDownload" class="com.FileDownloadAction">
+			<interceptor-ref name="fileUpload">
+				<param name="maximumSize">5048000000</param>
+				<param name="allowedTypes">text/plain</param>
+			</interceptor-ref>
+			<interceptor-ref name="defaultStack"></interceptor-ref>
+			<result name="success" type="stream">
+				<param name="contentType">${profileImageContentType}</param>
+				<param name="inputName">profileImage</param>
+				<param name="contentDisposition">filename="${profileImageFileName}"</param>
+				<param name="bufferSize">2048</param>
+			</result>
+			<result name="error">/index.jsp</result>
+
+		</action>
+
+	</package>
+
+</struts>
